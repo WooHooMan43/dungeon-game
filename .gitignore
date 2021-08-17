@@ -115,3 +115,6 @@ dmypy.json
 
 # Don't add level-related features yet.
 levels
+
+# setup.py is only for mac
+setup.py
