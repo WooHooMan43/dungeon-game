@@ -9,7 +9,7 @@ class Health(Item):
     def __init__(self, dest: tuple[int, int], parent: Screen) -> None:
         super().__init__(
             dest=dest,
-            image=parent.images[ITEM_TEXTURES["health"]] if parent is not None else None,
+            image=parent.images[ITEM_TEXTURES["health"]],
             count=1,
             collectable=False,
             parent=parent,
@@ -25,4 +25,6 @@ class Health(Item):
         player.points += 100
         # Stop other item sounds and play the coin "ba-ding!"
         self.parent.item_sounds.stop()
-        self.parent.item_sounds.play(self.parent.sounds[ITEM_SOUNDS["health"]["pickup"]])
+        self.parent.item_sounds.play(
+            self.parent.sounds[ITEM_SOUNDS["health"]["pickup"]]
+        )

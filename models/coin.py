@@ -9,7 +9,7 @@ class Coin(Item):
     def __init__(self, dest: tuple[int, int], count: int, parent: Screen) -> None:
         super().__init__(
             dest=dest,
-            image=parent.images[ITEM_TEXTURES["coin"]] if parent is not None else None,
+            image=parent.images[ITEM_TEXTURES["coin"]],
             count=count,
             collectable=False,
             parent=parent,

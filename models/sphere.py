@@ -70,7 +70,9 @@ class SphereEnemy(Enemy):
             and self.parent.rect.top <= self.rect.centery <= self.parent.rect.bottom
         ) and not self.done:
 
-            self.image = self.parent.images[ENEMY_TEXTURES["sphere"]["still"][self.facing]]
+            self.image = self.parent.images[
+                ENEMY_TEXTURES["sphere"]["still"][self.facing]
+            ]
 
             # Get the difference in position from the entity to the
             # point it is travelling to.
@@ -117,7 +119,7 @@ class SphereEnemy(Enemy):
             d = numpy.cross(p2 - p1, p1 - p3) / numpy.linalg.norm(p2 - p1)
             if abs(d) < self.rect.width:
                 self.done = False
-            
+
             self.image = self.parent.images[ENEMY_TEXTURES["sphere"]["sleep"]]
         # All of the old logic for moving this thing. I originially
         # planned for this to follow the player, but threw it out in

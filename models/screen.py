@@ -6,7 +6,7 @@ import pygame
 import pygame.sprite, pygame.freetype, pygame.mixer, pygame.time
 import os
 
-from utils import load_images, load_sounds
+from utils import load_images, load_sounds, resource_path
 from paths import SOUND_PATH, TEXTURE_PATH, BLOCK_TEXTURES
 
 # The base class for layouts. These objects will contain everything
@@ -50,17 +50,16 @@ class Screen(pygame.sprite.Sprite):
             parent.tile_side if parent is not None else int(self.rect.width / 16)
         )
 
-        self.image_side: int = (
-            parent.image_side
-            if parent is not None
-            else self.images[BLOCK_TEXTURES["bricks"]].get_height()
-        )
-
+        # self.image_side: int = (
+        #     parent.image_side
+        #     if parent is not None
+        #     else self.images[BLOCK_TEXTURES["bricks"]].get_height()
+        # )
         self.font: pygame.freetype.Font = (
             parent.font
             if parent is not None
             else pygame.freetype.Font(
-                os.path.join("assets", "fonts", "nes-arcade-font-2-1-monospaced.ttf"),
+                resource_path(os.path.join("assets", "fonts", "nes-arcade-font-2-1-monospaced.ttf")),
                 12,
             )
         )
