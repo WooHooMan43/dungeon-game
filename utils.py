@@ -7,12 +7,9 @@ import platform
 
 # Credit to Jonathon Reinhart on StackOverflow
 def resource_path(relative_path):
-    if platform.platform().startswith("Windows"):
-        """Get absolute path to resource, works for dev and for PyInstaller"""
-        base_path = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
-        return os.path.join(base_path, relative_path)
-    else:
-        return relative_path
+    """Get absolute path to resource, works for dev and for PyInstaller"""
+    base_path = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 # Credit to Varun of thispointer.com
 def get_files(dirName: str) -> list:
